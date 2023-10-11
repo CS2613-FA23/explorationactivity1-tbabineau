@@ -2,11 +2,10 @@
 The library that was selected for this assignment was Python's wave library.
 This library allows for .wav files to be written to and read from frame by frame, and each frame is written as a bytes object that represents the sound to be played during said frame. Using the library is very simple, all that you need to do is to open an existing .wav file for reading or create a new one for writing and use the functions outlined in Library Functionalities below to set specific values to describe the audio file. To open a file stream, we use `wave.open(fname, mode)` where fname is the name of the file, and the mode tells the program whether to open the stream in read only (rb) or write only (wb). With a read only file, we are able to read in a number of frames specified by the function call and store them within the porgram as a bytes object [[ref]](https://docs.python.org/3/library/wave.html). We do not need to read the frames in order, however, as read only files come equipped with functions like `setpos()` and `rewind()` to adjust where we are currently reading from the file. With write only files, we can pass a bytes object to a function to write audio to the file. This bytes object could contain multiple frames, the function will slice it up for us when writing based on the files sample width, which defines how many bytes make up a single frame [[ref]](https://docs.python.org/3/library/wave.html).
 
-The github repository supplied for the library dates the first commit as being February 15th 1994 by the user gvanrossum, the creator of python [[ref]](https://github.com/python/cpython/commits/3.12?after=ef4bd1b57ff2b0a908149d178b0b1fbdf9f7e247+34&branch=3.12&path%5B%5D=Lib&path%5B%5D=wave.py&qualified_name=refs%2Fheads%2F3.12).
+The github repository supplied for the library dates the first commit as being February 15th 1994, and it was made by the user gvanrossum, the creator of python [[ref]](https://github.com/python/cpython/commits/3.12?after=ef4bd1b57ff2b0a908149d178b0b1fbdf9f7e247+34&branch=3.12&path%5B%5D=Lib&path%5B%5D=wave.py&qualified_name=refs%2Fheads%2F3.12).
 
 # Library Functionalities
-The wave library can be split into two pieces, one portion for reading from files and one for writing to them. The most important function being the `open()`, which opens the file stream.
-Open takes two arguments, the name of the file, and the mode that the file is being opened in.
+The wave library can be split into two pieces, one portion for reading from files and one for writing to them. The most important function being the `open()`, which as described above, opens the file stream.
 ```
 f_in = wave.open("input.wav", "rb")
 f_out = wave.open("output.wav", "wb")
